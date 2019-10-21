@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">alexander_chunarev</string>
+    <string name="action_settings">Settings</string>
+    <string name="x">x =</string>
+    <string name="solve">Solve</string>
+    <string name="trigonometric_calculator">Trigonometric calculator</string>
+    <string name="enter_x_value">Enter x value</string>
+    <string name="enter_button">Enter</string>
+    <string name="result_is">Result is: </string>
+    <string name="cancel">Cancel</string>
+    <string-array name="functions_list">
+        <item>sin(x)</item>
+        <item>cos(x)</item>
+        <item>tan(x)</item>
+        <item>ctan(x)</item>
+    </string-array>
+</resources>
