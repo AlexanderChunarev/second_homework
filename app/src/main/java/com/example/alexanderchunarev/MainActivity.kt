@@ -12,17 +12,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        if (savedInstanceState != null) {
+            final_result.text = savedInstanceState.getString("final_result")
+        }
         setActionEvents()
     }
 
     private fun setActionEvents() {
         enter_button.setOnClickListener {
-            if (input_text.text.toString().trim().isNotEmpty()) {
+            if (isValid(input_text.text.toString())) {
                 startActivityForResult(Intent(this, EditActivity::class.java).apply {
-
                     putExtra("x_value", input_text.text.toString())
-
                 }, 1)
             } else
                 Toast.makeText(this, "Please, enter the number", Toast.LENGTH_SHORT).show()
@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun isValid(string: String): Boolean = string.toDoubleOrNull() != null
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1) {
@@ -48,5 +50,10 @@ class MainActivity : AppCompatActivity() {
                 final_result.text = data.getStringExtra("result")
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("final_result", final_result.text.toString())
     }
 }

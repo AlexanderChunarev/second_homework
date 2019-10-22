@@ -16,7 +16,9 @@ class EditActivity : AppCompatActivity() {
         getData()
         button_solve.setOnClickListener {
             setResult(Activity.RESULT_OK, Intent().apply {
-                putExtra("result", " ${spinner.selectedItem}=${solve()}")
+                putExtra("result",
+                    " ${spinner.selectedItem.toString().
+                        replace("x".toRegex(), x_value.text.toString())}=${String.format("%.5f", solve())}")
             })
             finish()
         }
@@ -38,8 +40,9 @@ class EditActivity : AppCompatActivity() {
 
     private fun getData() {
         intent.apply {
-            x_equal.text = getStringExtra("x_value")
-            x = x_equal.text.toString().toDouble()
+            x = getStringExtra("x_value")!!.toDouble()
+            x_value.text = String.format("%.3f", x)
+
         }
     }
 }

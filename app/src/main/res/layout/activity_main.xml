@@ -28,7 +28,8 @@
         app:layout_constraintEnd_toStartOf="@+id/enter_button"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintHorizontal_weight="2"
-        android:inputType="numberDecimal" />
+        android:layout_marginRight="8dp"
+        android:inputType="numberSigned|numberDecimal" />
 
     <Button
         android:id="@+id/enter_button"
@@ -44,23 +45,26 @@
 
     <TextView
         android:id="@+id/result_view"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/result_is"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_text" />
+        app:layout_constraintEnd_toStartOf="@+id/final_result"
+        app:layout_constraintTop_toBottomOf="@+id/input_text"
+        app:layout_constraintHorizontal_weight="1"/>
 
     <TextView
         android:id="@+id/final_result"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text=""
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/result_view"
-        app:layout_constraintTop_toBottomOf="@+id/input_text" />
+        app:layout_constraintTop_toBottomOf="@+id/input_text"
+        app:layout_constraintHorizontal_weight="3"/>
 
     <ImageButton
         android:id="@+id/button_send"
